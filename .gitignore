@@ -130,4 +130,6 @@ dmypy.json
 data/
 migrations/
 migration/
-
+db.sqlite3
+# [Python]
+*.pyc
