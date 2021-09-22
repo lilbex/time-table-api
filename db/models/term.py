@@ -1,13 +1,15 @@
 from django.db import models
+from .user import User
 import uuid
 
 class Term(models.Model):
   """Term model."""
   id = models.UUIDField(unique=True, primary_key=True,
                           default=uuid.uuid4, editable=False)
-  name = models.CharField(max_length=200)
+  term_name = models.CharField(max_length=200)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
   periods_per_day=models.IntegerField(default=0)
-  created_at = models.DateField(auto_now_add=True)
+  created_at = models.DateTimeField(auto_now_add=True)
 
   def __str__(self):
-      return self.name
+      return f'{self.term_name}'

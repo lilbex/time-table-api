@@ -1,0 +1,12 @@
+EMAIL_HOST_USER=lilbex.com@gmail.com
+EMAIL_HOST_PASSWORD=more4jesus
+EMAIL_VERIFICATION_URL=localhost:8000/verify/
+SECRET_KEY=django-insecure-y6_cw@v8b&czc)(vf&_markj0e-git+d61oujg!j&)*nc!re$e
+DEBUG=True
+ALLOWED_HOSTS=*
+
+ENGINE=django.db.backends.postgresql
+NAME=postgres
+USER=postgres
+PASSWORD=postgres
+HOST=localhost:8000

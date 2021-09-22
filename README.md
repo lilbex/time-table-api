@@ -4,7 +4,7 @@
 1. to start django project: `docker-compose run web django-admin startproject config .`
 
 2. to build docker: `docker-compose up -d --build` or `docker build .`
-3. to makemigration: `docker-compose run web python manage.py makemigration`
+3. to makemigration: `docker-compose run web python manage.py makemigrations`
 4. to migrate: ` docker-compose run web python manage.py migrate`
 5. to run docker: `docker-compose up`
 6. to remove docker: ` docker rm [docker ID]`
@@ -16,6 +16,10 @@
 10. ` \l ` to list db
 11. ` \c ` postgres to switch to postgres db
 12. ` \dt ` to see tables in db
+    `d+ ` to see all columns in a table
+
+`If you want to remove all unused images not just the dangling ones, add the -a (--all) option to the command:`
+13. docker system prune -a
 
 
 ### important link to help in production environment for docker

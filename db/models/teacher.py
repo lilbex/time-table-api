@@ -11,11 +11,11 @@ class Teacher(models.Model):
     """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     subject_name = models.CharField(max_length=200)
-    subject_id = models.ForeignKey(Subject, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    term_id = models.ForeignKey(Term, on_delete=models.CASCADE)
-    class_id = models.ForeignKey(Classe, on_delete=models.CASCADE)
-    time_per_week = models.IntegerField(default=0)
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    term = models.ForeignKey(Term, on_delete=models.CASCADE)
+    classe = models.ForeignKey(Classe, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
     
 
     def __str__(self):

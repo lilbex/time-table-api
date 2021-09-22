@@ -1,14 +1,29 @@
 version: "3.9"
-   
+
+x-db-envs: &db-envs
+  POSTGRES_DB: postgres
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_USER: postgres
+
+x-api-vars: &api-vars
+  ALLOWED_HOSTS: 127.0.0.1,localhost
+  DATABASE_URL: postgres://postgres:postgres@db:5432/postgres
+  DEBUG: 1
+  SECRET_KEY: SOME_RANDOM_SET_OF_CHARACTERS_USED_AS_SECRET_KEY_#
+  BASE_URL: http://localhost:8000/api/v1
+ 
+x-db-envs: &email-envs
+  EMAIL_HOST_USER=lilbex.com@gmail.com
+  EMAIL_HOST_PASSWORD=more4jesus
+  EMAIL_VERIFICATION_URL=localhost:8000/verify/
+
 services:
   db:
-    image: postgres
+    image: postgres:13-alpine
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      <<: *db-envs
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -16,5 +31,7 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    environment: 
+      <<: *api-vars
     depends_on:
       - db
