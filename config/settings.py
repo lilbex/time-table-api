@@ -152,10 +152,10 @@ SITE_ID = 1
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+EMAIL_HOST_USER = 'imokhaielias4heaven@gmail.com'
+EMAIL_HOST_PASSWORD = 'more4jesus'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
-EMAIL_VERIFICATION_URL = config('EMAIL_VERIFICATION_URL', default='')
+EMAIL_VERIFICATION_URL = 'http://localhost:8000/api/v1/auth/verify/'

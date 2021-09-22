@@ -33,8 +33,7 @@ class RegisterUserView(generics.GenericAPIView):
 
         # Email message (to be remove and use standard email html template)
         otp = generate_key(6)
-        EMAIL_VERIFICATION_URL = config(
-            'EMAIL_VERIFICATION_URL', default='http://localhost:18000/verify/')
+        EMAIL_VERIFICATION_URL = 'http://localhost:18000/ap1/v1/auth/verify/'
         email_text = 'Thank you for registering with us \n\n Please copy the code below to verify your email'
         email_body = f'Hi {fullname}\n {email_text} \n Click on this <a href="{EMAIL_VERIFICATION_URL}' \
             f'?otp={otp}&email={email}">link</a> to verify'
