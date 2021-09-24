@@ -10,9 +10,10 @@ class Subject(models.Model):
     """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     subject_name = models.CharField(max_length=100)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    term = models.ForeignKey(Term, on_delete=models.CASCADE)
-    classe = models.ForeignKey(Classe, on_delete=models.CASCADE)
+    teacher_name=models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    term = models.ForeignKey(Term, on_delete=models.CASCADE, null=True)
+    classe = models.ForeignKey(Classe, on_delete=models.CASCADE, null=True)
     time_per_week = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     
